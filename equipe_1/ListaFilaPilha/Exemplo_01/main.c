@@ -29,6 +29,10 @@ int main(void)
 
     printf("\nCHAVE: %d\n", chave);
 
+    
+    // No while, enquanto a chave não estiver no topo, 
+    //eu desempilho da lista principal e empilho na reserva,
+    // quando a chave estiver no topo eu saio do while e desempilho novamente
     while(chave != pilha.pilha[pilha.topo-1].numMatricula){ //Vou procurar a chave
         desempilharALuno(&aux, &pilha); //Cada vez que eu não achar a chave eu desempilho
         empilharAluno(aux, &pilhaReserva); //E guardo o valor desempilhado em uma pilha reserva
@@ -43,6 +47,7 @@ int main(void)
 
     printf("\n\nCHAVE DESEMPILHADA");
 
+    // neste while: desempilhando todos os valores da pilha reserva e empilhando na pilha principal
     while(pilhaReserva.topo > 0){
         empilharAluno(pilhaReserva.pilha[pilhaReserva.topo-1], &pilha); //Pego todos os valores da pilha reserva e empilho na principal
         desempilharALuno(&aux, &pilhaReserva);
